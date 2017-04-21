@@ -12,12 +12,6 @@ namespace AdventureWorks.Tests
     }
 
     [TestMethod()]
-    public void GetCustomerByContactIDTest1()
-    {
-
-    }
-
-    [TestMethod()]
     public void LoginTest()
     {
 
