@@ -30,12 +30,6 @@ namespace AdventureWorks.Tests
     }
 
     [TestMethod()]
-    public void GetBillAddressByCustomerIDTest1()
-    {
-
-    }
-
-    [TestMethod()]
     public void GetAddressByIDTest()
     {
 
