@@ -30,12 +30,6 @@ namespace AdventureWorks.Tests
     }
 
     [TestMethod()]
-    public void GetBillAddressByCustomerIDTest1()
-    {
-
-    }
-
-    [TestMethod()]
     public void GetAddressByIDTest()
     {
 
@@ -50,7 +44,17 @@ namespace AdventureWorks.Tests
     [TestMethod()]
     public void CloneAddressManagerTest()
     {
+      System.Threading.Thread.Sleep(1000);
 
+      AdventureWorksDataModel.Address desAddress;
+      desAddress = AdventureWorksDataModel.Address.CreateAddress(42, "1 Microsoft Way", "Redmond", "98052", System.Guid.NewGuid(), System.DateTime.Now);
+      AdventureWorksDataModel.Address tarAddress = new AdventureWorksDataModel.Address();
+      AdventureWorksDataModel.Entities entities = new AdventureWorksDataModel.Entities();
+      try
+      {
+        EpicAdventureWorks.AddressManager.Clone(desAddress, tarAddress, entities);
+      }
+      catch (System.Exception) {}
     }
 
     [TestMethod()]
