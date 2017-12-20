@@ -21,6 +21,7 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -165,6 +166,8 @@
     <Content Include="App_Data\AdventureWorks_Data_log.ldf" />
     <Content Include="App_Data\aspnetdb.mdf" />
     <Content Include="App_Data\aspnetdb_log.ldf" />
+    <Content Include="App_Data\AttachDB.sql" />
+    <Content Include="App_Data\DetachDB.sql" />
     <Content Include="App_Data\ProductDesc.xml" />
     <Content Include="App_Themes\windows7\images\arrow_down.png" />
     <Content Include="App_Themes\windows7\images\arrow_left.png" />
