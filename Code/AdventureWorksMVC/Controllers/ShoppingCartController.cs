@@ -315,7 +315,7 @@ namespace AdventureWorks.Controllers
                 Customer customer = CustomerManager.GetCustomerByContactID(contact.ContactID);
                 int salesOrderId = SalesOrderManager.GetLatestSalesOrderHeaderByCustomerID(customer.CustomerID).SalesOrderID;
 
-                Entities entities = Common.DataEntities;
+                Entities entities = EpicAdventureWorks.Common.DataEntities;
                 var items = from item in entities.SalesOrderDetail
                             join p in entities.Product on item.SpecialOfferProduct.ProductID equals p.ProductID
                             where item.SalesOrderID == salesOrderId
@@ -486,7 +486,7 @@ namespace AdventureWorks.Controllers
             contact.LastName = LastName;
             contact.Phone = Phone;
             ContactManager.SaveChanges(contact);
-            Entities entities = Common.DataEntities;
+            Entities entities = EpicAdventureWorks.Common.DataEntities;
             if (BillAddress == null)
             {
                 AddAddress(entities, contact,AddressLine1,  AddressLine2,  City,  State,  Zip);
@@ -533,7 +533,7 @@ namespace AdventureWorks.Controllers
             {
                 return;
             }
-            Entities entities = Common.DataEntities;
+            Entities entities = EpicAdventureWorks.Common.DataEntities;
             SalesOrderHeader salesOrderHeader = SalesOrderManager.GetLatestSalesOrderHeaderByCustomerID(customer.CustomerID,
                 entities);
             Address addr = AddressManager.GetAddressByID(BillAddress.AddressID, entities);
@@ -648,7 +648,7 @@ namespace AdventureWorks.Controllers
             contact.ModifiedDate = DateTime.Now;
             contact.PasswordHash = "1";
             contact.PasswordSalt = "1";
-            Entities entities = Common.DataEntities;
+            Entities entities = EpicAdventureWorks.Common.DataEntities;
             entities.AddToContact(contact);
             entities.SaveChanges();
             return contact.ContactID;
@@ -656,7 +656,7 @@ namespace AdventureWorks.Controllers
 
         private int SaveShipAddress(string AddressLine1, string AddressLine2,string City,string State,string Zip)
         {
-            Entities entities = Common.DataEntities;
+            Entities entities = EpicAdventureWorks.Common.DataEntities;
             Address address = new Address();
             address.AddressLine1 = AddressLine1;
             address.AddressLine2 = AddressLine2;
