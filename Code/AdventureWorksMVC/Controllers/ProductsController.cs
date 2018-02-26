@@ -51,7 +51,7 @@ namespace AdventureWorks.Controllers
                     if (Request.QueryString["Product"] != null)
                     {
                         s = HttpUtility.UrlDecode(Request.QueryString["Product"]);
-                        p = Common.DataEntities.Product.First(prod => prod.Name == s);
+                        p = EpicAdventureWorks.Common.DataEntities.Product.First(prod => prod.Name == s);
                         _currentProduct = p;
                     }
                 }
@@ -153,7 +153,7 @@ namespace AdventureWorks.Controllers
                 foreach (Product item in productcategoryList)
                 {
                     // if the categery is current category not show the category product link 
-                    if (!(Common.DataEntities.Product.First(prod => prod.Name == ProductStr).ProductID == item.ProductID))
+                    if (!(EpicAdventureWorks.Common.DataEntities.Product.First(prod => prod.Name == ProductStr).ProductID == item.ProductID))
                     {
                         string MenuItem = "<a href='" + string.Format("/Products/Index?Category={0}&SubCategory={1}&Product={2}", HttpUtility.UrlEncode(CatStr), HttpUtility.UrlEncode(SubCatStr), HttpUtility.UrlEncode(item.Name)) + "'>" + item.Name + "</a>";
                         RelatedMenuList.Add(MenuItem);
@@ -172,7 +172,7 @@ namespace AdventureWorks.Controllers
                     int valueCnt = cookievalue.Count;
                     for (int i = (valueCnt - 1); i >= (valueCnt > 5 ? (valueCnt - 5) : 0); i--)
                     {
-                        if (!cookievalue.AllKeys[i].Equals(Common.DataEntities.Product.First(prod => prod.Name == ProductStr).ProductID.ToString()))
+                        if (!cookievalue.AllKeys[i].Equals(EpicAdventureWorks.Common.DataEntities.Product.First(prod => prod.Name == ProductStr).ProductID.ToString()))
                         {
                             string[] values = cookievalue[i].Split('_');
                             if (values.Length == 3)
