@@ -3,6 +3,7 @@
 namespace AdventureWorks.Tests
 {
   [TestClass()]
+  [TestCategory("CI")]
   public class AddressManagerTests
   {
     [TestMethod()]
